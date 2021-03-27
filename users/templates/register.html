@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h2>Register</h2>
+{% if messages %}
+    {% for message in messages %}
+        alert('{{message}}')
+    {% endfor %}
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form>
+
+<a href="{% url 'login' %}">Back to login</a>
+{% endblock %}
